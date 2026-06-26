@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         btnsend.setOnClickListener(view ->{
             String text = edit.getText().toString();
+            if (text.isEmpty()){
+                Toast.makeText(MainActivity.this,"Enter text to go to the second activity",Toast.LENGTH_SHORT).show();
+            }else {
 
             Intent intent = new Intent(MainActivity.this,MainActivity2.class);
             intent.putExtra("text",text);
             startActivity(intent);
-        });
+        }});
     }
-}
+    }
